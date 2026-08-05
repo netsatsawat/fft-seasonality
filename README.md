@@ -152,7 +152,7 @@ upgraded, in notebook 02.
 
 Written by [Satsawat Natakarnkitkul](https://satsawat.ai), a data and AI
 practitioner in ASEAN. Companion series: [Markov chains and hidden
-Markov models](https://github.com/netsatsawat/markov_and_hidden_markov_model)
+Markov models](https://github.com/netsatsawat/markov-and-hmm)
 applies the same write-it-by-hand, verify-it-twice standard to a
 different corner of applied mathematics. Newsletter:
 [AI in Practice](https://satsawat.ai/#newsletter)
