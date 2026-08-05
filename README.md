@@ -8,28 +8,43 @@ CO2, and ends where an operations team would spend the results: a demand
 baseline, an anomaly alarm, and a capacity table for thirty-three months
 of real hourly traffic.
 
+If "Fourier transform" means nothing to you yet, here is why you might
+care. Every operational series has rhythms in it: sales swell before
+payday, servers run hot every evening, call queues explode on Monday
+mornings. Everyone in the meeting sort of knows these patterns; nobody
+can say exactly how big they are, whether they are stable, or which
+ones actually matter. The FFT is a sixty-year-old algorithm that
+answers all three questions in milliseconds. Hand it your messy series
+and it hands back the list of cycles hiding inside, each with a size
+attached, in your own units. That turns "Mondays feel busy" into a
+measured cycle you can staff against, alert on, or subtract away to
+see what is really changing underneath, which is the difference
+between a hunch and a plan.
+
 ![The spectrum of a working week](pic/traffic_spectrum.png)
 
 ## Why this repository exists
 
-I published the first version in 2020 as a single quick notebook: two
-synthetic sine waves, one FFT of a CO2 emissions series, one
-cross-check against a seasonal decomposition. People kept landing on
-it, and it aged the way quick notebooks do. The data file lived outside
-the repository, so the real-data half could not run at all; two of the
-library calls it used have since been removed from scipy and
-statsmodels, with a third deprecated in pandas; and the explanations
-skipped the ideas that actually
-trip people up, like why a trend floods a spectrum or why an amplitude
-needs a 2/N in front of it.
+The first version of this went up in 2020: one quick notebook I wrote
+after using the FFT to settle a seasonality question, two synthetic
+sine waves and a CO2 series with a decomposition cross-check. People
+kept finding it through search for years, which was flattering right
+up until I reopened it in 2026 and tried to run it. The data file had
+never been in the repository, so the interesting half died at the
+first cell. Two of the library calls no longer exist, and a third is
+on its way out. Worse, rereading my own explanations, I kept catching
+the spots where I wrote for someone who already understood, which is
+the one reader a tutorial does not need.
 
-This rewrite keeps what was good about the original, especially its
-habit of translating frequencies into human units and cross-checking
-the FFT against an independent decomposition, and rebuilds everything
-else around three rules: build each idea from something small enough to
-check by hand, get every important number twice by methods that cannot
-share a bug, and say what each tool assumes and where it breaks. The
-notebooks run offline, top to bottom, from data that ships in the repo.
+So this is the rewrite, done the way I wish someone had taught me.
+Nothing gets used before it is built once from scratch in plain numpy,
+small enough to check by hand. No number appears in the prose without
+the code that produced it sitting right above, and the numbers that
+matter get computed a second way, by a method the first one shares no
+code with, before I let myself believe them. When a tool has a
+weakness, a cell demonstrates the weakness instead of hoping you never
+meet it. And everything runs offline from data bundled in the repo, so
+what you read is exactly what you can run.
 
 ## The notebooks
 
