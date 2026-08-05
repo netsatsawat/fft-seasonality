@@ -1,5 +1,7 @@
 # FFT and the art of finding seasonality
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg) ![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white) ![Notebooks: executed](https://img.shields.io/badge/notebooks-3%20executed-eb6834?logo=jupyter&logoColor=white) ![Real data](https://img.shields.io/badge/data-NOAA%20%2B%20UCI%2C%20bundled-1baf7a) ![Verified twice](https://img.shields.io/badge/every%20number-verified%20twice-8a5cf6)
+
 A three-notebook tutorial on finding repeating patterns in time series
 data, written for someone with basic Python and no signal processing
 background. It starts by building the Fourier transform by hand in four
@@ -23,7 +25,7 @@ between a hunch and a plan.
 
 ![The spectrum of a working week](pic/traffic_spectrum.png)
 
-## Why this repository exists
+## 🧭 Why this repository exists
 
 The first version of this went up in 2020: one quick notebook I wrote
 after using the FFT to settle a seasonality question, two synthetic
@@ -46,7 +48,7 @@ weakness, a cell demonstrates the weakness instead of hoping you never
 meet it. And everything runs offline from data bundled in the repo, so
 what you read is exactly what you can run.
 
-## The notebooks
+## 📚 The notebooks
 
 **[01 · Fourier from scratch](notebooks/01_fourier_from_scratch.ipynb).**
 What the transform actually does, built as a hand-made "probe scan"
@@ -83,7 +85,7 @@ holidays and the snowstorms, including a sub-freezing April weekend
 that cut demand by 60%) and a capacity table showing what sizing to the
 mean, the 80th, or the 95th percentile actually buys.
 
-## Where this applies in the real world
+## 💼 Where this applies in the real world
 
 The traffic sensor is a stand-in. The same three-step arc (diagnose the
 rhythms, build a baseline, act on deviations) is the daily bread of
@@ -115,7 +117,7 @@ the CSV and keep the code.
   temperature records, and any other series where a trend and a season
   share the data.
 
-## Running it yourself
+## 🚀 Running it yourself
 
 ```
 python -m venv .venv && source .venv/bin/activate
@@ -136,7 +138,7 @@ and documents every cleaning decision (duplicate hours, the 2014-2015
 sensor outage, the 4.2% of hours interpolated, a holiday flag that
 needed spreading across its day).
 
-## What changed since 2020
+## 🔁 What changed since 2020
 
 The original single notebook is retired in favor of the sequence above.
 Beyond the plumbing repairs (bundled data, current pandas, scipy, and
