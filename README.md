@@ -68,6 +68,38 @@ holidays and the snowstorms, including a sub-freezing April weekend
 that cut demand by 60%) and a capacity table showing what sizing to the
 mean, the 80th, or the 95th percentile actually buys.
 
+## Where this applies in the real world
+
+The traffic sensor is a stand-in. The same three-step arc (diagnose the
+rhythms, build a baseline, act on deviations) is the daily bread of
+several jobs, and notebook 03 is deliberately written so you can replace
+the CSV and keep the code.
+
+- **Workforce and capacity planning.** Contact centers, field service,
+  emergency departments, and warehouses all staff against an
+  hour-of-week demand profile. Notebook 03's baseline comparison and
+  its capacity table (what sizing to the mean, the 80th, or the 95th
+  percentile actually buys) is that conversation with numbers attached.
+- **Operations monitoring and alerting.** The per-slot z-score alarm is
+  seasonally aware anomaly detection: it knows a quiet Monday 8am is an
+  incident while a quiet Sunday 3am is just Sunday. The same pattern
+  monitors network load, API request rates, payment volumes, and IoT
+  telemetry, and the notebook shows it finding real holidays and real
+  snowstorms with a 1.9% flag rate.
+- **Forecasting features.** The detected periods become the calendar
+  and Fourier features that downstream forecasting models feed on, and
+  the climatology-versus-harmonics backtest is the honest way to decide
+  whether a fancier model earns its complexity.
+- **Sensor and telemetry forensics.** Aliasing, leakage, and the
+  regular-grid requirement are the traps waiting inside any downsampled
+  or gappy telemetry. Notebook 01 demonstrates each one on data where
+  the truth is known, which is the cheapest place to learn them.
+- **Trended seasonal series of any kind.** The Keeling-curve workflow
+  in notebook 02 (detrend, transform, cross-check, significance-test)
+  is the template for energy consumption, retail sales riding growth,
+  temperature records, and any other series where a trend and a season
+  share the data.
+
 ## Running it yourself
 
 ```
