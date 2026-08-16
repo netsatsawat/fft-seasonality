@@ -1,0 +1,29 @@
+# CI has one job here: prove the README still tells the truth. The
+# notebooks are committed already executed, so nothing re-runs them on the
+# runner; verify_readme_claims.py recomputes each quoted number from the
+# CSVs in data/ and from the notebook sources, offline, in under a second.
+# There is no tests/ directory in this repo, so there is no test step.
+# The matrix is the two ends of the range the README badge advertises:
+# the 3.9 floor and a current release. Installing requirements.txt in full
+# is deliberate, since that is the command the README hands the reader.
+
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt
+      - name: every README number matches its artifact
+        run: python scripts/verify_readme_claims.py

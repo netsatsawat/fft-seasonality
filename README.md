@@ -36,8 +36,7 @@ answers all three questions in milliseconds. Hand it your messy series
 and it hands back the list of cycles hiding inside, each with a size
 attached, in your own units. That turns "Mondays feel busy" into a
 measured cycle you can staff against, alert on, or subtract away to
-see what is really changing underneath, which is the difference
-between a hunch and a plan.
+see what is really changing underneath. A hunch becomes a plan.
 
 ![The spectrum of a working week](pic/traffic_spectrum.png)
 
@@ -76,8 +75,8 @@ Hann window, and why noise mostly cannot hide a real cycle.
 
 **[02 · Seasonality in the Keeling curve](notebooks/02_seasonality_in_the_keeling_curve.ipynb).**
 Real data, and the raw FFT stumbles at once: the CO2 trend floods the
-spectrum with leakage, which is the most common practical mistake in
-this field (the 2020 version of this tutorial quietly dropped two
+spectrum with leakage, the most common practical mistake in this
+field (the 2020 version of this tutorial quietly dropped two
 frequency bins to hide it). Detrend properly and the annual cycle
 stands clear, after which four independent witnesses are made to agree:
 the spectrum, brute-force monthly averaging, the autocorrelation
@@ -105,8 +104,8 @@ mean, the 80th, or the 95th percentile actually buys.
 
 The traffic sensor is a stand-in. The same three-step arc (diagnose the
 rhythms, build a baseline, act on deviations) is the daily bread of
-several jobs, and notebook 03 is deliberately written so you can replace
-the CSV and keep the code.
+several jobs, and notebook 03 is written so you can replace the CSV
+and keep the code.
 
 - **Workforce and capacity planning.** Contact centers, field service,
   emergency departments, and warehouses all staff against an
@@ -126,7 +125,7 @@ the CSV and keep the code.
 - **Sensor and telemetry forensics.** Aliasing, leakage, and the
   regular-grid requirement are the traps waiting inside any downsampled
   or gappy telemetry. Notebook 01 demonstrates each one on data where
-  the truth is known, which is the cheapest place to learn them.
+  the truth is known, the cheapest place to learn them.
 - **Trended seasonal series of any kind.** The Keeling-curve workflow
   in notebook 02 (detrend, transform, cross-check, significance-test)
   is the template for energy consumption, retail sales riding growth,
